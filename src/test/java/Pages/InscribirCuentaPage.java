@@ -18,4 +18,7 @@ public class InscribirCuentaPage extends BaseSelenium {
     By aceptar = By.xpath("//button[contains(text(),'Aceptar')]");
 
     //Definir las acciones de la Página
+    public void agregarCuenta(){
+
+    }
 }

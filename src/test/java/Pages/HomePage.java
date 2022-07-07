@@ -3,6 +3,7 @@ package Pages;
 import Base.BaseSelenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class HomePage extends BaseSelenium {
     public HomePage(WebDriver driver){
@@ -11,9 +12,23 @@ public class HomePage extends BaseSelenium {
     //Centralizar los localizadores
     By rut = By.name("username");
     By password = By.xpath("/html/body/modal-container/div/div/login-modal-login/div/div[2]/form/section/div[2]/input");
-    By ingresar = By.xpath("/html/body/modal-container/div/div/login-modal-login/div/div[2]/form/section/button");
+    By btnIngresar = By.xpath("/html/body/modal-container/div/div/login-modal-login/div/div[2]/form/section/button");
     By titulo = By.xpath("//h4[contains(text(),'Hola Matias')]");
-    By miServipag = By.xpath("//a[contains(text(),'Mi Servipag')]");
+    By btnMiServipag = By.xpath("//a[contains(text(),'Mi Servipag')]");
 
     //Definir las acciones de la Página
+    public void iniciarSesion(){
+        click(esperaExplicita(btnMiServipag));
+        esperarXSegundos(10);
+
+        WebElement input_rut = driver.findElement(rut);
+        input_rut.sendKeys("175553878");
+
+        WebElement input_password = driver.findElement(password);
+        input_rut.sendKeys("Rojas651");
+
+        click(btnIngresar);
+        esperarXSegundos(10);
+    }
+
 }
