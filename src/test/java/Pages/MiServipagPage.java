@@ -3,6 +3,10 @@ package Pages;
 import Base.BaseSelenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 public class MiServipagPage extends BaseSelenium {
     public MiServipagPage(WebDriver driver){
@@ -23,11 +27,33 @@ public class MiServipagPage extends BaseSelenium {
         click(btnInscribirCuenta);
     }
 
-    public void IrAlPerfil(){
+    public void irAlPerfil(){
         driver.get("https://portal.servipag.com/private/profile");
         esperarXSegundos(15);
     }
+    public String getTituloEliminacion(){
+        return obtenerTexto(tituloEliminacion);
+    }
+
     public void eliminarCuenta(){
+        List<WebElement> misCuentas = driver.findElements(listadoCuenta);
+
+        for (int i = 0; i < misCuentas.size(); i++ ) {
+            if (misCuentas.get(i).getText().equals("562267260251")) {
+                System.out.println(misCuentas.get(i).getText());
+                esperarXSegundos(10);
+                click(borrar);
+                esperarXSegundos(10);
+                click(eliminar);
+                esperarXSegundos(10);
+                click(entendido);
+                System.out.println("Cuenta Eliminada");
+                break;
+            } else {
+                System.out.println(misCuentas.get(i).getText());
+                System.out.println("Error dato no es correcto");
+            }
+        }
 
     }
 

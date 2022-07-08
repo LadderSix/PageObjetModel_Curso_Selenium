@@ -13,13 +13,12 @@ public class HomePage extends BaseSelenium {
     By rut = By.name("username");
     By password = By.xpath("/html/body/modal-container/div/div/login-modal-login/div/div[2]/form/section/div[2]/input");
     By btnIngresar = By.xpath("/html/body/modal-container/div/div/login-modal-login/div/div[2]/form/section/button");
-    By titulo = By.xpath("//h4[contains(text(),'Hola Matias')]");
     By btnMiServipag = By.xpath("//a[contains(text(),'Mi Servipag')]");
 
     //Definir las acciones de la Página
     public void iniciarSesion(){
         click(esperaExplicita(btnMiServipag));
-        esperarXSegundos(10);
+        esperarXSegundos(1000);
 
         WebElement input_rut = driver.findElement(rut);
         input_rut.sendKeys("175553878");
@@ -28,7 +27,7 @@ public class HomePage extends BaseSelenium {
         input_rut.sendKeys("Rojas651");
 
         click(btnIngresar);
-        esperarXSegundos(10);
+        esperarXSegundos(1000);
     }
 
 }

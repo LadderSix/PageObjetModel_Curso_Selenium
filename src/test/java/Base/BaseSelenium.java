@@ -52,7 +52,7 @@ public class BaseSelenium {
     //EsperasExplicitas
     public WebElement esperaExplicita(By localizador){
         wait = new WebDriverWait(this.driver,30);
-        return wait.until(ExpectedConditions.presenceOfElementLocated(localizador));
+        return wait.until(ExpectedConditions.elementToBeClickable(localizador));
     }
 
     //EsperasImplicitas

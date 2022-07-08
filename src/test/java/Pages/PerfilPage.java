@@ -16,9 +16,8 @@ public class PerfilPage extends BaseSelenium {
     By miApellido = By.xpath("//input[@id='validationCustom02']");
 
     //Definir las acciones de la Página
-    public void getTextTituloPerfil(){
-        WebElement miTituloPerfil = driver.findElement(tituloPerfil);
-        miTituloPerfil.getText();
+    public String getTextTituloPerfil(){
+        return obtenerTexto(tituloPerfil);
     }
 
 }
