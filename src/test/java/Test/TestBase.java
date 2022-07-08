@@ -29,7 +29,7 @@ public class TestBase {
         homePage = new HomePage(driver);
         String browser = "chrome";
         String propertyDriver = "webdriver.chrome.driver";
-        String path = Paths.get(System.getProperty("user.dir"),"\\Users\\Matias.Rojas\\Documents\\chromedriver.exe").toString();
+        String path = Paths.get(System.getProperty("user.dir"),"//src//main//resources//drivers//chromedriver.exe").toString();
 
         homePage.conexionDriver(browser,path,propertyDriver);
         miServipagPage = new MiServipagPage(homePage.getDriver());
