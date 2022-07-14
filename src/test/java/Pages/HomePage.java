@@ -20,14 +20,10 @@ public class HomePage extends BaseSelenium {
         click(esperaExplicita(btnMiServipag));
         esperarXSegundos(1000);
 
-        WebElement input_rut = driver.findElement(rut);
-        input_rut.sendKeys("175553878");
+        agregarTexto(rut,"175553878");
+        agregarTexto(password,"Rojas651");
 
-        WebElement input_password = driver.findElement(password);
-        input_rut.sendKeys("Rojas651");
-
-        click(btnIngresar);
-        esperarXSegundos(1000);
+        click(esperaExplicita(btnIngresar));
     }
 
 }

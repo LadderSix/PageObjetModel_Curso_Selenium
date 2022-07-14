@@ -21,19 +21,17 @@ public class InscribirCuentaPage extends BaseSelenium {
 
     //Definir las acciones de la Página
     public void agregarCuenta(){
-        WebElement input_buscarCuenta = driver.findElement(buscarCuenta);
-        input_buscarCuenta.sendKeys("Internet");
-        input_buscarCuenta.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ENTER);
-
-        WebElement input_numeroCuenta = driver.findElement(numeroCuenta);
-        input_numeroCuenta.sendKeys("562267260251");
-
-        esperarXSegundos(10);
-        click(agregar);
-        esperarXSegundos(10);
-        click(continuar);
-        esperarXSegundos(10);
-        click(aceptar);
+        agregarTexto(buscarCuenta,"Internet");
+        accionTeclado(buscarCuenta,Keys.ARROW_DOWN);
+        accionTeclado(buscarCuenta,Keys.ARROW_DOWN);
+        accionTeclado(buscarCuenta,Keys.ENTER);
+        agregarTexto(numeroCuenta,"562267260251");
+        esperarXSegundos(1000);
+        click(esperaExplicita(agregar));
+        esperarXSegundos(1000);
+        click(esperaExplicita(continuar));
+        esperarXSegundos(1000);
+        click(esperaExplicita(aceptar));
     }
 
     public String getTitulo(){
