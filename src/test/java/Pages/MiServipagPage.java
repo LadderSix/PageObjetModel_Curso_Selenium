@@ -23,6 +23,7 @@ public class MiServipagPage extends BaseSelenium {
     By btnInscribirCuenta = By.xpath("//a[contains(text(),'Inscribir cuentas')]");
     By listaPerfil = By.xpath("//button[@id='button-basic']");
     By btnIrAPerfil = By.xpath("//a[contains(text(),'Ir a perfil')]");
+    By btnCerrarSesion = By.xpath("//a[contains(text(),'Cerrar Sesión')]");
 
     //Definir las acciones de la Página
     public void inscribirCuenta(){

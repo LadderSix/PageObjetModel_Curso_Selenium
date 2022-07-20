@@ -53,6 +53,7 @@ public class TestBase {
         miServipagPage.irAlPerfil();
         perfilPage.esperarXSegundos(2000);
         Assert.assertEquals(perfilPage.getTextTituloPerfil(),"Hola Matias");
+        perfilPage.cerrarSesion();
     }
     @Test
     public void ATC02_registrarCuenta(){
@@ -68,5 +69,6 @@ public class TestBase {
         homePage.iniciarSesion();
         miServipagPage.eliminarCuenta();
         Assert.assertEquals(miServipagPage.getTituloEliminacion(),"Su cuenta ha sido eliminada");
+        miServipagPage.btnEntendido();
     }
 }
