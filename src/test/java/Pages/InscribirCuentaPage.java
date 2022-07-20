@@ -21,7 +21,9 @@ public class InscribirCuentaPage extends BaseSelenium {
 
     //Definir las acciones de la Página
     public void agregarCuenta(){
+        esperarXSegundos(3000);
         agregarTexto(buscarCuenta,"Internet");
+        accionTeclado(buscarCuenta,Keys.ARROW_DOWN);
         accionTeclado(buscarCuenta,Keys.ARROW_DOWN);
         accionTeclado(buscarCuenta,Keys.ARROW_DOWN);
         accionTeclado(buscarCuenta,Keys.ENTER);
@@ -31,7 +33,6 @@ public class InscribirCuentaPage extends BaseSelenium {
         esperarXSegundos(1000);
         click(esperaExplicita(continuar));
         esperarXSegundos(1000);
-        click(esperaExplicita(aceptar));
     }
 
     public String getTitulo(){
@@ -40,6 +41,11 @@ public class InscribirCuentaPage extends BaseSelenium {
 
     public String getTitulo2(){
         return obtenerTexto(confirmacion2);
+    }
+
+    public void btnAceptar(){
+        esperarXSegundos(1500);
+        click(esperaExplicita(aceptar));
     }
 
 }

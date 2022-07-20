@@ -18,6 +18,7 @@ public class TestBase {
     private HomePage homePage;
     private MiServipagPage miServipagPage;
     private PerfilPage perfilPage;
+    private InscribirCuentaPage inscribirCuentaPage;
 
 
     @BeforeTest
@@ -30,7 +31,9 @@ public class TestBase {
         homePage.conexionDriver(browser,path,propertyDriver);
         miServipagPage = new MiServipagPage(homePage.getDriver());
         perfilPage = new PerfilPage(miServipagPage.getDriver());
+        inscribirCuentaPage = new InscribirCuentaPage(miServipagPage.getDriver());
     }
+
     @BeforeMethod
     public void precondicionesTests() throws InterruptedException {
         url = "https://www.servipag.com";
@@ -52,8 +55,18 @@ public class TestBase {
         Assert.assertEquals(perfilPage.getTextTituloPerfil(),"Hola Matias");
     }
     @Test
-    public  void ATC02_registrarCuenta(){
+    public void ATC02_registrarCuenta(){
         homePage.iniciarSesion();
         miServipagPage.inscribirCuenta();
+        inscribirCuentaPage.agregarCuenta();
+        Assert.assertEquals(inscribirCuentaPage.getTitulo(),"Excelente!");
+        Assert.assertEquals(inscribirCuentaPage.getTitulo2(),"Sigue agregando tus cuentas");
+        inscribirCuentaPage.btnAceptar();
+    }
+    @Test
+    public void ATC03_eliminarCuenta(){
+        homePage.iniciarSesion();
+        miServipagPage.eliminarCuenta();
+        Assert.assertEquals(miServipagPage.getTituloEliminacion(),"Su cuenta ha sido eliminada");
     }
 }

@@ -26,6 +26,7 @@ public class MiServipagPage extends BaseSelenium {
 
     //Definir las acciones de la Página
     public void inscribirCuenta(){
+        esperarXSegundos(1500);
         click(esperaExplicita(btnInscribirCuenta));
     }
 
@@ -39,23 +40,26 @@ public class MiServipagPage extends BaseSelenium {
     }
 
     public void eliminarCuenta(){
+        esperarXSegundos(4000);
         List<WebElement> misCuentas = driver.findElements(listadoCuenta);
 
         for (int i = 0; i < misCuentas.size(); i++ ) {
             if (misCuentas.get(i).getText().equals("562267260251")) {
                 System.out.println(misCuentas.get(i).getText());
-                esperarXSegundos(10);
-                click(borrar);
-                esperarXSegundos(10);
-                click(eliminar);
-                esperarXSegundos(10);
-                click(entendido);
-                System.out.println("Cuenta Eliminada");
+                esperarXSegundos(1000);
+                click(esperaExplicita(borrar));
+                esperarXSegundos(1000);
+                click(esperaExplicita(eliminar));
                 break;
             } else {
                 System.out.println(misCuentas.get(i).getText());
                 System.out.println("Error dato no es correcto");
             }
         }
+    }
+    public void btnEntendido(){
+        esperarXSegundos(1000);
+        click(esperaExplicita(entendido));
+        System.out.println("Cuenta Eliminada");
     }
 }
