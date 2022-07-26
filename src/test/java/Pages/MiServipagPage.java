@@ -21,7 +21,7 @@ public class MiServipagPage extends BaseSelenium {
     By tituloEliminacion = By.xpath("//p[contains(text(),'Su cuenta ha sido eliminada')]");
     By entendido = By.xpath("//button[contains(text(),'Entendido')]");
     By btnInscribirCuenta = By.xpath("//a[contains(text(),'Inscribir cuentas')]");
-    By listaPerfil = By.xpath("//button[@id='button-basic']");
+    By menu = By.xpath("//button[@id='button-basic']");
     By btnIrAPerfil = By.xpath("//a[contains(text(),'Ir a perfil')]");
     By btnCerrarSesion = By.xpath("//a[contains(text(),'Cerrar Sesión')]");
 
@@ -32,7 +32,7 @@ public class MiServipagPage extends BaseSelenium {
     }
 
     public void irAlPerfil(){
-        click(esperaExplicita(listaPerfil));
+        click(esperaExplicita(menu));
         click(btnIrAPerfil);
 
     }

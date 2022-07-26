@@ -19,6 +19,7 @@ public class TestBase {
     private MiServipagPage miServipagPage;
     private PerfilPage perfilPage;
     private InscribirCuentaPage inscribirCuentaPage;
+    private PagoRapidoPage pagoRapidoPage;
 
 
     @BeforeTest
@@ -32,6 +33,7 @@ public class TestBase {
         miServipagPage = new MiServipagPage(homePage.getDriver());
         perfilPage = new PerfilPage(miServipagPage.getDriver());
         inscribirCuentaPage = new InscribirCuentaPage(miServipagPage.getDriver());
+        pagoRapidoPage = new PagoRapidoPage(homePage.getDriver());
     }
 
     @BeforeMethod
@@ -53,6 +55,7 @@ public class TestBase {
         miServipagPage.irAlPerfil();
         perfilPage.esperarXSegundos(2000);
         Assert.assertEquals(perfilPage.getTextTituloPerfil(),"Hola Matias");
+        perfilPage.esperarXSegundos(2000);
         perfilPage.cerrarSesion();
     }
     @Test
@@ -70,5 +73,12 @@ public class TestBase {
         miServipagPage.eliminarCuenta();
         Assert.assertEquals(miServipagPage.getTituloEliminacion(),"Su cuenta ha sido eliminada");
         miServipagPage.btnEntendido();
+    }
+    @Test
+    public void ATC_04_pagoRapido(){
+        pagoRapidoPage.btnPagoRapido();
+        pagoRapidoPage.esperarXSegundos(1500);
+        pagoRapidoPage.buscarServicio("Internet");
+
     }
 }
