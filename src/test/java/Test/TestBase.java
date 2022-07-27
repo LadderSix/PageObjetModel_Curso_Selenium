@@ -50,7 +50,7 @@ public class TestBase {
 
     @Test
     public void ATC01_iniciarSesion(){
-        homePage.iniciarSesion();
+        homePage.iniciarSesion("175553878","Rojas651");
         miServipagPage.esperarXSegundos(3000);
         miServipagPage.irAlPerfil();
         perfilPage.esperarXSegundos(2000);
@@ -60,7 +60,7 @@ public class TestBase {
     }
     @Test
     public void ATC02_registrarCuenta(){
-        homePage.iniciarSesion();
+        homePage.iniciarSesion("175553878","Rojas651");
         miServipagPage.inscribirCuenta();
         inscribirCuentaPage.agregarCuenta();
         Assert.assertEquals(inscribirCuentaPage.getTitulo(),"Excelente!");
@@ -69,7 +69,7 @@ public class TestBase {
     }
     @Test
     public void ATC03_eliminarCuenta(){
-        homePage.iniciarSesion();
+        homePage.iniciarSesion("175553878","Rojas651");
         miServipagPage.eliminarCuenta();
         Assert.assertEquals(miServipagPage.getTituloEliminacion(),"Su cuenta ha sido eliminada");
         miServipagPage.btnEntendido();
@@ -79,6 +79,7 @@ public class TestBase {
         pagoRapidoPage.btnPagoRapido();
         pagoRapidoPage.esperarXSegundos(1500);
         pagoRapidoPage.buscarServicio("Internet");
+        pagoRapidoPage.seleccionarEmpresa("Movistar Hogar/Negocio Internet");
 
     }
 }
