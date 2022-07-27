@@ -40,12 +40,12 @@ public class MiServipagPage extends BaseSelenium {
         return obtenerTexto(tituloEliminacion);
     }
 
-    public void eliminarCuenta(){
+    public void eliminarCuenta(String idCuenta){
         esperarXSegundos(4000);
         List<WebElement> misCuentas = driver.findElements(listadoCuenta);
 
         for (int i = 0; i < misCuentas.size(); i++ ) {
-            if (misCuentas.get(i).getText().equals("562267260251")) {
+            if (misCuentas.get(i).getText().equals(idCuenta)) {
                 System.out.println(misCuentas.get(i).getText());
                 esperarXSegundos(1000);
                 click(esperaExplicita(borrar));
