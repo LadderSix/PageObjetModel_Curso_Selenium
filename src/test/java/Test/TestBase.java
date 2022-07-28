@@ -1,9 +1,9 @@
 package Test;
 
 import Base.DataDriven;
+import Base.PropertiesDriven;
 import Pages.*;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class TestBase {
     private WebDriver driver;
-    private WebDriverWait wait;
     private String url;
     private HomePage homePage;
     private MiServipagPage miServipagPage;
@@ -26,29 +25,30 @@ public class TestBase {
     private ArrayList<String> dataCP_02;
     private ArrayList<String> dataCP_03;
     private ArrayList<String> dataCP_04;
+    private String browser;
+    private String propertyDriver;
+    private String rutaDriver;
 
 
     @BeforeTest
     public void preparacion(){
-        String browser = "chrome";
-        String propertyDriver = "webdriver.chrome.driver";
-        String path = Paths.get(System.getProperty("user.dir"),"//src//main//resources//drivers//chromedriver.exe").toString();
+        browser = PropertiesDriven.getProperty("browser");
+        propertyDriver = PropertiesDriven.getProperty("propertyDriver");
+        rutaDriver = Paths.get(System.getProperty("user.dir"),PropertiesDriven.getProperty("rutaDriver")).toString();
+    }
 
+    @BeforeMethod
+    public void precondicionesTests() {
         homePage = new HomePage(driver);
-        homePage.conexionDriver(browser,path,propertyDriver);
+        homePage.conexionDriver(browser,rutaDriver,propertyDriver);
         miServipagPage = new MiServipagPage(homePage.getDriver());
         perfilPage = new PerfilPage(miServipagPage.getDriver());
         inscribirCuentaPage = new InscribirCuentaPage(miServipagPage.getDriver());
         pagoRapidoPage = new PagoRapidoPage(homePage.getDriver());
-
         dataCP_01 = new ArrayList<>();
-    }
 
-    @BeforeMethod
-    public void precondicionesTests() throws InterruptedException {
-        url = "https://www.servipag.com";
+        url = PropertiesDriven.getProperty("url");
         homePage.cargarSitio(url);
-        Thread.sleep(2000);
         homePage.maximizarBrowser();
     }
     @AfterMethod

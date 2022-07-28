@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite de pruebas]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="Casos de prueba(failed)" verbose="0">
+    <classes>
+      <class name="Test.TestBase">
+        <methods>
+          <include name="ATC_04_pagoRapido"/>
+          <include name="preparacion"/>
+          <include name="precondicionesTests"/>
+          <include name="ATC02_registrarCuenta"/>
+          <include name="ATC03_eliminarCuenta"/>
+          <include name="posTests"/>
+        </methods>
+      </class> <!-- Test.TestBase -->
+    </classes>
+  </test> <!-- Casos de prueba(failed) -->
+</suite> <!-- Failed suite [Suite de pruebas] -->

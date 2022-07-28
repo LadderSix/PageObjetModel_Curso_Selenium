@@ -23,7 +23,7 @@ public class DataDriven {
         FileInputStream file = null;
         try {
             file = new FileInputStream
-                    ("C:\\Users\\matias.rojas\\IdeaProjects\\PageObjectModel_Curso_Selenium\\src\\main\\resources\\Data\\DataDriven.xlsx");
+                    (PropertiesDriven.getProperty("rutaExcel"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ public class DataDriven {
         System.out.println("Cantidad de Hojas: " + sheets);
 
         for(int i = 0; i < sheets ; i++){
-            if (excel.getSheetName(i).equalsIgnoreCase("Datos")){
+            if (excel.getSheetName(i).equalsIgnoreCase(PropertiesDriven.getProperty("hojaExcel"))){
                 //encontre la hoja
                 XSSFSheet hojaExcel = excel.getSheetAt(i);
                 //Iteramos en la fila
@@ -55,8 +55,8 @@ public class DataDriven {
 
                 while(celda.hasNext()){
                     Cell celdaSeleccionada = celda.next();
-                    System.out.println(celdaSeleccionada.getStringCellValue());
-                    if(celdaSeleccionada.getStringCellValue().equalsIgnoreCase("TestCase")){
+                    //System.out.println(celdaSeleccionada.getStringCellValue());
+                    if(celdaSeleccionada.getStringCellValue().equalsIgnoreCase(PropertiesDriven.getProperty("nombreCasoPrueba"))){
                         //identifique la celda con el titulo de la columna con los nombres de los TCs
                         columna = k;
                     }
