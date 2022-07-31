@@ -125,6 +125,22 @@ public class BaseSelenium {
             return false;
         }
     }
+    public boolean estaDesplegado(By localizador){
+        try{
+            return this.driver.findElement(localizador).isDisplayed();
+        }catch (Exception e){
+            System.out.println("No se verifico que el elemento asociado el locator:"+localizador.toString()+" estuviera desplegado");
+            return false;
+        }
+    }
+    public boolean estaSeleccionado(By localizador){
+        try{
+            return this.driver.findElement(localizador).isSelected();
+        }catch (Exception e){
+            System.out.println("No se verifico que el elemento asociado el locator:"+localizador.toString()+" estuviera seleccionado");
+            return false;
+        }
+    }
 
     public String obtenerUrlPagina(){
         return this.driver.getCurrentUrl();

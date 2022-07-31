@@ -74,7 +74,7 @@ public class TestBase {
 
         homePage.iniciarSesion(dataCP_01.get(1),dataCP_01.get(2));
         miServipagPage.inscribirCuenta();
-        inscribirCuentaPage.agregarCuenta(dataCP_02.get(2),dataCP_02.get(1));
+        inscribirCuentaPage.agregarCuenta(dataCP_02.get(1),dataCP_02.get(2));
         Assert.assertEquals(inscribirCuentaPage.getTitulo(),"Excelente!");
         Assert.assertEquals(inscribirCuentaPage.getTitulo2(),"Sigue agregando tus cuentas");
         inscribirCuentaPage.btnAceptar();
@@ -85,7 +85,7 @@ public class TestBase {
         dataCP_03 = DataDriven.getData("ATC03_EliminarCuenta");
 
         homePage.iniciarSesion(dataCP_01.get(1),dataCP_01.get(2));
-        miServipagPage.eliminarCuenta(dataCP_03.get(3));
+        miServipagPage.eliminarCuenta(dataCP_03.get(2));
         Assert.assertEquals(miServipagPage.getTituloEliminacion(),"Su cuenta ha sido eliminada");
         perfilPage.esperarXSegundos(3000);
         miServipagPage.btnEntendido();

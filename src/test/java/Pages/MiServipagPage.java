@@ -24,6 +24,7 @@ public class MiServipagPage extends BaseSelenium {
     By menu = By.xpath("//button[@id='button-basic']");
     By btnIrAPerfil = By.xpath("//a[contains(text(),'Ir a perfil')]");
     By btnCerrarSesion = By.xpath("//a[contains(text(),'Cerrar Sesión')]");
+    By tituloCuentaEliminada = By.xpath("//h3[contains(text(),'Movistar Hogar/Negocio Internet')]");
 
     //Definir las acciones de la Página
     public void inscribirCuenta(){
@@ -47,11 +48,13 @@ public class MiServipagPage extends BaseSelenium {
         for (int i = 0; i < misCuentas.size(); i++ ) {
             if (misCuentas.get(i).getText().equals(idCuenta)) {
                 System.out.println(misCuentas.get(i).getText());
-                esperarXSegundos(1000);
+                esperarXSegundos(2000);
                 click(esperaExplicita(borrar));
-                esperarXSegundos(1000);
-                click(esperaExplicita(eliminar));
-                break;
+                if(estaDesplegado(tituloCuentaEliminada)){
+                    esperarXSegundos(3000);
+                    click(esperaExplicita(eliminar));
+                    break;
+                }
             } else {
                 System.out.println(misCuentas.get(i).getText());
                 System.out.println("Error dato no es correcto");
@@ -59,7 +62,7 @@ public class MiServipagPage extends BaseSelenium {
         }
     }
     public void btnEntendido(){
-        esperarXSegundos(1000);
+        esperarXSegundos(2000);
         click(esperaExplicita(entendido));
         System.out.println("Cuenta Eliminada");
     }

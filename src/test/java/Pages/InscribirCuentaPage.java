@@ -20,9 +20,9 @@ public class InscribirCuentaPage extends BaseSelenium {
     By aceptar = By.xpath("//button[contains(text(),'Aceptar')]");
 
     //Definir las acciones de la Página
-    public void agregarCuenta(String cuenta, String idCuenta){
+    public void agregarCuenta(String empresa, String idCuenta){
         esperarXSegundos(3000);
-        agregarTexto(buscarCuenta,cuenta);
+        agregarTexto(buscarCuenta,empresa);
         accionTeclado(buscarCuenta,Keys.ARROW_DOWN);
         accionTeclado(buscarCuenta,Keys.ARROW_DOWN);
         accionTeclado(buscarCuenta,Keys.ARROW_DOWN);
