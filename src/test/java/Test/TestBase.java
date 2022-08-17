@@ -21,10 +21,12 @@ public class TestBase {
     private PerfilPage perfilPage;
     private InscribirCuentaPage inscribirCuentaPage;
     private PagoRapidoPage pagoRapidoPage;
+    private CartolaPage cartolaPage;
     private ArrayList<String> dataCP_01;
     private ArrayList<String> dataCP_02;
     private ArrayList<String> dataCP_03;
     private ArrayList<String> dataCP_04;
+    private ArrayList<String> dataCP_05;
     private String browser;
     private String propertyDriver;
     private String rutaDriver;
@@ -44,7 +46,9 @@ public class TestBase {
         miServipagPage = new MiServipagPage(homePage.getDriver());
         perfilPage = new PerfilPage(miServipagPage.getDriver());
         inscribirCuentaPage = new InscribirCuentaPage(miServipagPage.getDriver());
+        cartolaPage = new CartolaPage(miServipagPage.getDriver());
         pagoRapidoPage = new PagoRapidoPage(homePage.getDriver());
+
         dataCP_01 = new ArrayList<>();
 
         url = PropertiesDriven.getProperty("url");
@@ -96,6 +100,19 @@ public class TestBase {
         pagoRapidoPage.esperarXSegundos(1500);
         pagoRapidoPage.buscarServicio("Internet");
         pagoRapidoPage.seleccionarEmpresa("Movistar Hogar/Negocio Internet");
+    }
+
+    @Test
+    public void ATC_05_descargarCartola6meses(){
+        dataCP_05 = DataDriven.getData("ATC05_descargarCartola6meses");
+
+        homePage.iniciarSesion(dataCP_05.get(1),dataCP_05.get(2));
+        miServipagPage.irACartola();
+        cartolaPage.descargarCartolaExcel();
+        cartolaPage.esperarXSegundos(5000);
+    }
+    @Test
+    public void ATC_06_descargarCartolaLuz(){
 
     }
 }

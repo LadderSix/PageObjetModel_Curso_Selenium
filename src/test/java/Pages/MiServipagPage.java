@@ -14,6 +14,7 @@ public class MiServipagPage extends BaseSelenium {
     }
     //Centralizar los localizadores
 
+    By btnCartola = By.xpath("//a[contains(text(),' Cartola Histórica ')]");
     // locators para eliminar cuenta
     By listadoCuenta = By.xpath("//div[@class=\"id col-3 text-break\"]");
     By borrar = By.xpath("//li[@class=\"delete\"]");
@@ -26,17 +27,20 @@ public class MiServipagPage extends BaseSelenium {
     By btnCerrarSesion = By.xpath("//a[contains(text(),'Cerrar Sesión')]");
     By tituloCuentaEliminada = By.xpath("//h3[contains(text(),'Movistar Hogar/Negocio Internet')]");
 
+
     //Definir las acciones de la Página
     public void inscribirCuenta(){
         esperarXSegundos(1500);
         click(esperaExplicita(btnInscribirCuenta));
     }
-
     public void irAlPerfil(){
         click(esperaExplicita(menu));
         click(btnIrAPerfil);
-
+    }public void irACartola(){
+        esperarXSegundos(1500);
+        click(esperaExplicita(btnCartola));
     }
+
     public String getTituloEliminacion(){
         return obtenerTexto(tituloEliminacion);
     }
