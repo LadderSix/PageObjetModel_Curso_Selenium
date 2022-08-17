@@ -51,8 +51,6 @@ public class PagoRapidoPage extends BaseSelenium {
         }else {
             System.out.println("Error en la operación");
         }
-
-
     }
 
     public void enviaCuenta(String cuenta){

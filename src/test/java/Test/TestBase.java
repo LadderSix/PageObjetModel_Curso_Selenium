@@ -27,6 +27,7 @@ public class TestBase {
     private ArrayList<String> dataCP_03;
     private ArrayList<String> dataCP_04;
     private ArrayList<String> dataCP_05;
+    private ArrayList<String> dataCP_06;
     private String browser;
     private String propertyDriver;
     private String rutaDriver;
@@ -48,8 +49,6 @@ public class TestBase {
         inscribirCuentaPage = new InscribirCuentaPage(miServipagPage.getDriver());
         cartolaPage = new CartolaPage(miServipagPage.getDriver());
         pagoRapidoPage = new PagoRapidoPage(homePage.getDriver());
-
-        dataCP_01 = new ArrayList<>();
 
         url = PropertiesDriven.getProperty("url");
         homePage.cargarSitio(url);
@@ -113,6 +112,13 @@ public class TestBase {
     }
     @Test
     public void ATC_06_descargarCartolaLuz(){
+        dataCP_06 = DataDriven.getData("ATC06_descargarCartolaLuz");
 
+        homePage.iniciarSesion(dataCP_06.get(1),dataCP_06.get(2));
+        miServipagPage.irACartola();
+        cartolaPage.seleccionarServicio(dataCP_06.get(3));
+        cartolaPage.seleccionarEmpresa(dataCP_06.get(4));
+        cartolaPage.buscar();
+        cartolaPage.descargarCartolaExcel();
     }
 }
