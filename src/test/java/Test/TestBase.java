@@ -100,7 +100,6 @@ public class TestBase {
         pagoRapidoPage.buscarServicio("Internet");
         pagoRapidoPage.seleccionarEmpresa("Movistar Hogar/Negocio Internet");
     }
-
     @Test
     public void ATC_05_descargarCartola6meses(){
         dataCP_05 = DataDriven.getData("ATC05_descargarCartola6meses");
@@ -120,5 +119,6 @@ public class TestBase {
         cartolaPage.seleccionarEmpresa(dataCP_06.get(4));
         cartolaPage.buscar();
         cartolaPage.descargarCartolaExcel();
+        cartolaPage.esperarXSegundos(5000);
     }
 }

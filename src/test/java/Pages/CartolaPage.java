@@ -48,23 +48,21 @@ public class CartolaPage extends BaseSelenium{
         }
     }
     public void seleccionarServicio(String miServicio){
-        if(estaHabilitado(listaServicio)){
+        try{
             esperarXSegundos(1500);
             Select option = new Select(driver.findElement(listaServicio));
-            System.out.println(option);
             option.selectByVisibleText(miServicio);
-        }else {
-            System.out.println("Error en la operación");
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
     public void seleccionarEmpresa(String miEmpresa){
-        if(estaHabilitado(listaEmpresa)){
+        try{
             esperarXSegundos(1500);
             Select option2 = new Select(driver.findElement(listaEmpresa));
-            System.out.println(option2);
             option2.selectByVisibleText(miEmpresa);
-        }else {
-            System.out.println("Error en la operación");
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
