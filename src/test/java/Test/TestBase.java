@@ -22,12 +22,14 @@ public class TestBase {
     private InscribirCuentaPage inscribirCuentaPage;
     private PagoRapidoPage pagoRapidoPage;
     private CartolaPage cartolaPage;
+    private PresupuestoPage presupuestoPage;
     private ArrayList<String> dataCP_01;
     private ArrayList<String> dataCP_02;
     private ArrayList<String> dataCP_03;
     private ArrayList<String> dataCP_04;
     private ArrayList<String> dataCP_05;
     private ArrayList<String> dataCP_06;
+    private ArrayList<String> dataCP_07;
     private String browser;
     private String propertyDriver;
     private String rutaDriver;
@@ -49,6 +51,7 @@ public class TestBase {
         inscribirCuentaPage = new InscribirCuentaPage(miServipagPage.getDriver());
         cartolaPage = new CartolaPage(miServipagPage.getDriver());
         pagoRapidoPage = new PagoRapidoPage(homePage.getDriver());
+        presupuestoPage = new PresupuestoPage(miServipagPage.getDriver());
 
         url = PropertiesDriven.getProperty("url");
         homePage.cargarSitio(url);
@@ -120,5 +123,14 @@ public class TestBase {
         cartolaPage.buscar();
         cartolaPage.descargarCartolaExcel();
         cartolaPage.esperarXSegundos(5000);
+    }
+    @Test
+    public void ATC_07_ValidaCreacionDePresupuesto(){
+        dataCP_07 = DataDriven.getData("ATC07_ValidaCreacionDePresupuesto");
+
+        homePage.iniciarSesion(dataCP_07.get(1),dataCP_07.get(2));
+        miServipagPage.irAPresupuesto();
+        presupuestoPage.crearPresupuesto();
+
     }
 }

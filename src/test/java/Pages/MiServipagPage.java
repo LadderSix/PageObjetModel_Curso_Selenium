@@ -26,6 +26,7 @@ public class MiServipagPage extends BaseSelenium {
     By btnIrAPerfil = By.xpath("//a[contains(text(),'Ir a perfil')]");
     By btnCerrarSesion = By.xpath("//a[contains(text(),'Cerrar Sesión')]");
     By tituloCuentaEliminada = By.xpath("//h3[contains(text(),'Movistar Hogar/Negocio Internet')]");
+    By linkPresupuesto = By.xpath("(//a[@href=\"/private/budget\"])[1]");
 
 
     //Definir las acciones de la Página
@@ -36,9 +37,14 @@ public class MiServipagPage extends BaseSelenium {
     public void irAlPerfil(){
         click(esperaExplicita(menu));
         click(btnIrAPerfil);
-    }public void irACartola(){
+    }
+    public void irACartola(){
         esperarXSegundos(1500);
         click(esperaExplicita(btnCartola));
+    }
+    public void irAPresupuesto(){
+        esperarXSegundos(1500);
+        click(esperaExplicita(linkPresupuesto));
     }
 
     public String getTituloEliminacion(){
