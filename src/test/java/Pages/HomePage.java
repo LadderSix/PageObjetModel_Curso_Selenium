@@ -16,13 +16,14 @@ public class HomePage extends BaseSelenium {
     By btnMiServipag = By.xpath("//a[contains(text(),'Mi Servipag')]");
 
     //Definir las acciones de la Página
-    public void iniciarSesion(String miRut,String pass){
+
+    public void btnMiServipag(){
         click(esperaExplicita(btnMiServipag));
         esperarXSegundos(1000);
-
+    }
+    public void iniciarSesion(String miRut,String pass){
         agregarTexto(rut,miRut);
         agregarTexto(password,pass);
-
         click(esperaExplicita(btnIngresar));
     }
 
