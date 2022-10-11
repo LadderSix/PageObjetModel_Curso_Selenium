@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="1" tests="1" time="0">
+    <testcase classname="Servipag Inicio de Sesion" name="Validar inicio de sesion en mi servipag" time="0">
+        <skipped><![CDATA[Given el usuario se encuentra en la pagina de servipag......................undefined
+When el usuario presiona en boton Mi Servipag...............................undefined
+When el usuario ingreso rut y password......................................undefined
+Then el usuario puede ver su informacion....................................undefined
+]]></skipped>
+    </testcase>
+</testsuite>

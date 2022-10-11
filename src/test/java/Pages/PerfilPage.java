@@ -24,6 +24,7 @@ public class PerfilPage extends BaseSelenium {
     public String getTextTituloPerfil(){
         return obtenerTexto(tituloPerfil);
     }
+
     public void cerrarSesion(){
         click(esperaExplicita(menu));
         esperarXSegundos(1000);

@@ -1,5 +1,6 @@
 package Base;
 
+import org.joda.time.Seconds;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -9,6 +10,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class BaseSelenium {
     //Atributos
@@ -51,7 +55,7 @@ public class BaseSelenium {
 
     //EsperasExplicitas
     public WebElement esperaExplicita(By localizador){
-        wait = new WebDriverWait(this.driver,30);
+        wait = new WebDriverWait(this.driver, Duration.ofSeconds(30));
         return wait.until(ExpectedConditions.elementToBeClickable(localizador));
     }
 

@@ -13,15 +13,11 @@ import java.util.ArrayList;
 public class TestBaseCucumber {
     private WebDriver driver;
     private HomePage homePage;
-    private MiServipagPage miServipagPage;
-    private PerfilPage perfilPage;
-    private InscribirCuentaPage inscribirCuentaPage;
-    private PagoRapidoPage pagoRapidoPage;
-    private CartolaPage cartolaPage;
-    private PresupuestoPage presupuestoPage;
     private String browser;
     private String propertyDriver;
     private String rutaDriver;
+    private MiServipagPage miServipag;
+    private PerfilPage miperfil;
 
     @BeforeTest
     public void preparacion(){
@@ -34,6 +30,8 @@ public class TestBaseCucumber {
     public void precondicionesTests() {
         homePage = new HomePage(driver);
         homePage.conexionDriver(browser,rutaDriver,propertyDriver);
+        miServipag = new MiServipagPage(homePage.getDriver());
+        miperfil = new PerfilPage(miServipag.getDriver());
 
         String url = PropertiesDriven.getProperty("url");
         homePage.cargarSitio(url);

@@ -1,0 +1,58 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 2,
+        "name": "Validar inicio de sesion en mi servipag",
+        "description": "",
+        "id": "servipag-inicio-de-sesion;validar-inicio-de-sesion-en-mi-servipag",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 4,
+            "name": "el usuario se encuentra en la pagina de servipag",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 5,
+            "name": "el usuario presiona en boton Mi Servipag",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 6,
+            "name": "el usuario ingreso rut y password",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 7,
+            "name": "el usuario puede ver su informacion",
+            "match": {},
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Servipag Inicio de Sesion",
+    "description": "",
+    "id": "servipag-inicio-de-sesion",
+    "keyword": "Feature",
+    "uri": "IniciarSesion.feature"
+  }
+]

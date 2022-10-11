@@ -26,5 +26,8 @@ public class HomePage extends BaseSelenium {
         agregarTexto(password,pass);
         click(esperaExplicita(btnIngresar));
     }
+    public void getTituloPagina(){
+        getTituloPagina();
+    }
 
 }
